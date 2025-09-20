@@ -2,9 +2,11 @@ from plugins.base_plugin.base_plugin import BasePlugin
 from openai import OpenAI
 from PIL import Image
 from io import BytesIO
+from datetime import datetime
 import base64
 import requests
 import logging
+import os
 
 logger = logging.getLogger(__name__)
 
@@ -87,6 +89,13 @@ class AIImage(BasePlugin):
             image_base64 = response.data[0].b64_json
             image_bytes = base64.b64decode(image_base64)
             img = Image.open(BytesIO(image_bytes))
+
+        # save image to folder
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        path = f"outputs/ai_images/{model}_{quality}_{orientation}_{timestamp}.png"
+        os.makedirs("outputs/ai_images", exist_ok=True)
+        img.save(path)
+        logger.info(f"Saved image to {path}")
         return img
 
     @staticmethod
