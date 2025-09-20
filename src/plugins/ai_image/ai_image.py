@@ -64,7 +64,7 @@ class AIImage(BasePlugin):
         prompt += (
             "Focus on simplicity, bold shapes, and strong contrast to enhance clarity "
             "and visual appeal. Avoid excessive detail or complex gradients, ensuring "
-            "the design works well with flat, vibrant colors."
+            "the design works well with flat, vibrant colors of E-ink Spectra 6"
         )
         args = {
             "model": model,
@@ -128,7 +128,7 @@ class AIImage(BasePlugin):
 
         # Make the API call
         response = ai_client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-5-nano",
             messages=[
                 {
                     "role": "system",
