@@ -138,8 +138,8 @@ class AIImage(BasePlugin):
                 "unexpected, unconventional, and bizarre combinations of art style, medium, "
                 "subjects, time periods, and moods. Do not provide any headers or repeat the "
                 "request, just provide your updated prompt in the response. Prompts "
-                "should be 20 words or less and specify random artist, movie, tv show or time "
-                "period for the theme."
+                "should be 20 words or less and specify random artist, movie, tv show, game "
+                "or time period for the theme."
             )
             user_content = (
                 f'Original prompt: "{from_prompt}"\n'
@@ -156,6 +156,7 @@ class AIImage(BasePlugin):
                 {"role": "user", "content": user_content},
             ],
             temperature=1,
+            reasoning_effort="minimal",
         )
 
         prompt = response.choices[0].message.content.strip()
