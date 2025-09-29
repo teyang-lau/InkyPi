@@ -117,15 +117,15 @@ class AIImage(BasePlugin):
 
         system_content = (
             "You are a creative assistant generating extremely random and unique image prompts. "
-            "Avoid common themes. Focus on unexpected, unconventional, and bizarre combinations "
+            "Avoid common themes like koi fish. Focus on unexpected, unconventional, and bizarre combinations "
             "of art style, medium, subjects, time periods, and moods. No repetition. Prompts "
-            "should be 20 words or less and specify random artist, movie, tv show, game, comic, "
-            "manga or time period for the theme. Do not provide any headers or repeat the request, "
-            "just provide the updated prompt in your response."
+            "should be 30 words or less and specify random artist, movie, tv show, game, comic, "
+            "manga or time period for the theme. Do not provide any headers, " 
+            "or repeat the request, just provide the updated prompt in your response."
         )
         user_content = (
-            "Give me a completely random image prompt, something unexpected and creative! "
-            "Let's see what your AI mind can cook up!"
+            "Give me a completely random image prompt, something unexpected, unique, and creative! "
+            "Include vivid imagery and descriptive details."
         )
         if from_prompt and from_prompt.strip():
             system_content = (
@@ -138,7 +138,7 @@ class AIImage(BasePlugin):
                 "unexpected, unconventional, and bizarre combinations of art style, medium, "
                 "subjects, time periods, and moods. Do not provide any headers or repeat the "
                 "request, just provide your updated prompt in the response. Prompts "
-                "should be 20 words or less and specify random artist, movie, tv show, game, "
+                "should be 30 words or less and specify random artist, movie, tv show, game, "
                 "comic, manga or time period for the theme."
             )
             user_content = (
